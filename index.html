@@ -1,0 +1,263 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A Little Love for My Prince ❤️</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      text-align: center;
+      font-family: Georgia, serif;
+      color: #90536e;
+      background: linear-gradient(
+        145deg,
+        #fff8f5,
+        #f8dce9,
+        #eee0fa
+      );
+      padding: 35px 15px;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-weight: normal;
+      font-size: 2.3rem;
+    }
+
+    .subtitle {
+      margin-bottom: 25px;
+    }
+
+    /* Bouquet */
+    .real-bouquet {
+      width: min(90%, 360px);
+      margin: 25px auto 35px;
+      text-align: center;
+      animation: bouquetFloat 4s ease-in-out infinite;
+    }
+
+    .real-bouquet img {
+      width: 100%;
+      height: 340px;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 18px;
+      border: 5px solid #fffaf2;
+      box-shadow: 0 12px 30px #a85c7840;
+    }
+
+    .bouquet-caption {
+      margin-top: 12px;
+      color: #a65376;
+      font-style: italic;
+      font-size: 17px;
+    }
+
+    @keyframes bouquetFloat {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-7px);
+      }
+    }
+
+    @keyframes sway {
+      50% {
+        transform: rotate(4deg);
+      }
+    }
+
+    /* Envelope */
+    button {
+      border: 0;
+      background: none;
+      cursor: pointer;
+      font-family: Georgia, serif;
+      color: #90536e;
+    }
+
+    .envelope {
+      display: block;
+      width: 260px;
+      height: 160px;
+      margin: 25px auto;
+      padding: 0;
+      position: relative;
+      background: #f0c8d5;
+      border: 1px solid #d69bb2;
+      border-radius: 8px;
+      box-shadow: 0 10px 25px #9d557533;
+      perspective: 800px;
+    }
+
+    .flap {
+      position: absolute;
+      inset: 0;
+      background: #f9e3eb;
+      clip-path: polygon(0 0, 100% 0, 50% 60%);
+      transform-origin: top;
+      transition: transform 0.9s;
+      z-index: 3;
+    }
+
+    .front {
+      position: absolute;
+      inset: 0;
+      background: #efc4d3;
+      clip-path: polygon(
+        0 0,
+        50% 60%,
+        100% 0,
+        100% 100%,
+        0 100%
+      );
+      z-index: 2;
+    }
+
+    .heart {
+      position: absolute;
+      top: 65px;
+      left: 45%;
+      font-size: 35px;
+      color: #b98542;
+      z-index: 4;
+    }
+
+    .envelope.open .flap {
+      transform: rotateX(180deg);
+    }
+
+    /* Love letter */
+    .letter {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: all 1s;
+      background: #fffaf7;
+      border-radius: 12px;
+      padding: 0 20px;
+      max-width: 380px;
+      margin: auto;
+      line-height: 1.8;
+      box-shadow: 0 8px 25px #9d557522;
+    }
+
+    .letter.show {
+      max-height: 450px;
+      opacity: 1;
+      padding: 25px 20px;
+    }
+
+    .signature {
+      color: #ad6282;
+      font-style: italic;
+    }
+
+    /* Floating hearts */
+    .floating {
+      position: fixed;
+      bottom: -30px;
+      animation: float 6s linear forwards;
+      pointer-events: none;
+    }
+
+    @keyframes float {
+      to {
+        transform: translateY(-110vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>A Little Love<br>for My Prince ❤️</h1>
+
+  <p class="subtitle">
+    A little bouquet, carrying a whole lot of love.
+  </p>
+
+  <!-- Bouquet -->
+  <div class="real-bouquet">
+    <img
+      src="https://i.postimg.cc/nrCGV42h/bouquet-of-roses-red-color-flowers-celebretion-vector.jpg"
+      alt="A bouquet of roses"
+    >
+
+    <div class="bouquet-caption">
+      A bouquet, just for you ❤️
+    </div>
+  </div>
+
+  <p>Psst… there's a little message tucked inside. 💌</p>
+
+  <!-- Envelope -->
+  <button
+    class="envelope"
+    id="envelope"
+    onclick="openLetter()"
+    aria-label="Open love letter"
+  >
+    <span class="flap"></span>
+    <span class="front"></span>
+    <span class="heart">♥</span>
+  </button>
+
+  <!-- Love letter -->
+  <div class="letter" id="letter">
+
+    <h2>To my dearest Prince… ❤️</h2>
+
+    <p>Baby bear ❤️</p>
+
+    <p>
+      It's November 2 ❤️ 9 days to go 😁
+      Advanced happy birthday vampire 🥳
+      Just like these flowers, may your life bloom
+      with endless happiness ❤️
+      Your princess is always here to make you happy 😁
+    </p>
+
+    <p class="signature">
+      Forever yours,<br>
+      Your Princess ❤️
+    </p>
+
+  </div>
+
+  <p>Made with love, just for you. ✨</p>
+
+  <!-- JavaScript -->
+  <script>
+    function openLetter() {
+      document.getElementById("envelope").classList.toggle("open");
+      document.getElementById("letter").classList.toggle("show");
+
+      for (let i = 0; i < 15; i++) {
+        let h = document.createElement("span");
+
+        h.className = "floating";
+        h.innerHTML = "♥";
+        h.style.left = Math.random() * 95 + "vw";
+        h.style.color = "#d77b9e";
+        h.style.fontSize = "22px";
+
+        document.body.appendChild(h);
+
+        setTimeout(() => h.remove(), 6000);
+      }
+    }
+  </script>
+
+</body>
+</html>

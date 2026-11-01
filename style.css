@@ -1,0 +1,69 @@
+html {
+  height: 100%;
+  background: 50% 50% no-repeat
+    url('data:image/svg+xml,<svg viewBox="-20 -5 60 40" width="140" xmlns="http://www.w3.org/2000/svg" opacity="0.2"><path d="M1 8l11-7 11 7v8l-11 7-11-7zm0 0l11 8 11-8m0 8L12 8 1 16M12 1v7m0 8v7" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2"/><text x="-12" y="32" font-size="5" font-family="monospace" fill="currentColor">Built on CodePen</text></svg>');
+}
+.envelope {
+  display: block;
+  width: 260px;
+  height: 160px;
+  margin: 25px auto;
+  padding: 0;
+  position: relative;
+  background: #f0c8d5;
+  border: 1px solid #d69bb2;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px #9d557533;
+  perspective: 800px;
+}
+
+.flap {
+  position: absolute;
+  inset: 0;
+  background: #f9e3eb;
+  clip-path: polygon(0 0, 100% 0, 50% 60%);
+  transform-origin: top;
+  transition: transform .9s;
+  z-index: 3;
+}
+
+.front {
+  position: absolute;
+  inset: 0;
+  background: #efc4d3;
+  clip-path: polygon(0 0, 50% 60%, 100% 0, 100% 100%, 0 100%);
+  z-index: 2;
+}
+
+.heart {
+  position: absolute;
+  top: 65px;
+  left: 45%;
+  font-size: 35px;
+  color: #b98542;
+  z-index: 4;
+}
+
+.envelope.open .flap {
+  transform: rotateX(180deg);
+}
+
+.letter {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 1s;
+  background: #fffaf7;
+  border-radius: 12px;
+  padding: 0 20px;
+  max-width: 380px;
+  margin: auto;
+  line-height: 1.8;
+  box-shadow: 0 8px 25px #9d557522;
+}
+
+.letter.show {
+  max-height: 450px;
+  opacity: 1;
+  padding: 25px 20px;
+}
